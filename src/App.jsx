@@ -8,7 +8,7 @@ function App() {
   const [showFinished, setshowFinished] = useState(true)
 
   const getTodo = async () => {
-    let req = await fetch("http://localhost:3000")
+    let req = await fetch("https://task31-backend.vercel.app")
     let todo = await req.json()
     console.log(todo)
     setTodos(todo)
