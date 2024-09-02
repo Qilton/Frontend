@@ -41,7 +41,7 @@ useEffect(() => {
     if (confirm("Are You Sure") == true) {
       let newTodos = todos.filter((item => { return item.id !== id }))
       setTodos(newTodos)
-      await fetch("http://localhost:3000/", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({id})})
+      await fetch("https://task31-backend.vercel.app", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({id})})
       
     }
    
@@ -51,7 +51,7 @@ useEffect(() => {
   const handleAdd = async() => {
     setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
     console.log(todos)
-  await fetch("http://localhost:3000/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: uuidv4(), todo, isCompleted: false } ) })
+  await fetch("https://task31-backend.vercel.app", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: uuidv4(), todo, isCompleted: false } ) })
     
     
   }
@@ -65,7 +65,7 @@ useEffect(() => {
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
     
-    await fetch("http://localhost:3000/", {
+    await fetch("https://task31-backend.vercel.app", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id })
